@@ -8,15 +8,15 @@ In this era of information, analog domain has become a challenging and an import
 
 # CONTENTS:
 - Day 1:  
-  PLL Theory  
-  Phase-Frequency detector  
-  Charge pump  
-  Loop filter  
-  Voltage-controlled oscillator  
-  Frequency dividor  
-  Tool setup  
-  Development Flow  
-  PLL Specifications  
+  - PLL Theory  
+  - Phase-Frequency detector  
+  - Charge pump  
+  - Loop filter  
+  - Voltage-controlled oscillator  
+  - Frequency dividor  
+  - Tool setup  
+  - Development Flow  
+  - PLL Specifications  
 - Day 2: Simulations  
   - Pre-Layout Simulations  
     - Phase-Frequency detector  
