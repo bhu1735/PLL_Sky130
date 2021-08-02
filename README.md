@@ -4,7 +4,7 @@
 
 
 # DESCRIPTION:  
-In this era of information, analog domain has become a challenging and an important part of IC design. Almost all electronic systems are susceptible to noise and mismatch. PLL is a an important element that is found in radio, telecommunications, oscillators among others. In this regard, a 2-day workshop on Phase-locked loop (PLL) IC design by VSD-IAT was conducted. The workshop covered the basic understanding of all the different blocks that make up a PLL. Using open-source tools such as Ngspice, Magic and Google-Skywater 130nm PDK, a 8x PLL clock multiplier IC was designed. Both pre-layout and post-layout simulations were carried out and detailed analysis was done to get an intuitive understanding of VLSI design flow (starts from device level to tapeout stage). Basic understanding of electric circuits is beneficial for a beginner.
+In this era of information, analog domain has become a challenging and an important part of IC design. Almost all electronic systems are susceptible to noise and mismatch. PLL is a an important element that is found in radio, telecommunications, oscillators among others. In this regard, a 2-day workshop on Phase-locked loop (PLL) IC design by VSD-IAT was conducted from 31st July, 2021 to 1st August, 2021. The workshop covered the basic understanding of all the different blocks that make up a PLL. Using open-source tools such as Ngspice, Magic and Google-Skywater 130nm PDK, a 8x PLL clock multiplier IC was designed. Both pre-layout and post-layout simulations were carried out and detailed analysis was done to get an intuitive understanding of VLSI design flow (starts from device level to tapeout stage). Basic understanding of electric circuits is beneficial for a beginner.
 
 # CONTENTS:
 1) Day 1:  
@@ -17,15 +17,28 @@ In this era of information, analog domain has become a challenging and an import
   Tool setup  
   Development Flow  
   PLL Specifications  
-2) Day 2:  
-  Simulations
-  PLL Theory  
-  Phase-Frequency detector  
-  Charge pump  
-  Loop filter  
-  Voltage-controlled oscillator  
-  Frequency dividor  
-
+2) Day 2: Simulations  
+  Pre-Layout Simulations  
+    - Phase-Frequency detector  
+    - Charge pump  
+    - Voltage-controlled oscillator  
+    - Frequency dividor  
+    - Troubleshooting Steps  
+  Layout Design  
+    - Phase-Frequency detector  
+    - Charge pump  
+    - Voltage-controlled oscillator  
+    - Frequency dividor  
+    - MUX  
+    - PLL System  
+  Post-Layout Simulations  
+    - Phase-Frequency detector  
+    - Charge pump  
+    - Voltage-controlled oscillator  
+    - Frequency dividor  
+  Tapeout
+  Acknowledgement
+  
 
 # Day 1:  
 ## PLL Theory:  
@@ -169,9 +182,9 @@ Here, the control voltage is represented byy Red color while output clock is sho
 
 Here, input clock is shown in blue and output clock is shown in red color.  
 
-## Troubleshooting Steps:
+### Troubleshooting Steps:
 
-## Layout:
+## Layout Design:
 Color Specifications used:
 1) p-diffusion - orange  
 2) n-diffusion - green  
@@ -203,7 +216,7 @@ We shall now look at the layouts of the different blocks of PLL system.
 
 ![image](https://user-images.githubusercontent.com/88243788/127905077-442151cb-5581-4c14-b11f-97dee7f13110.png)
 
-### PLL system:
+### PLL System:
 
 ![image](https://user-images.githubusercontent.com/88243788/127905043-03babaee-b073-429b-8a32-39d3a1852a98.png)
 
