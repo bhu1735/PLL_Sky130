@@ -290,7 +290,7 @@ Here, red represents the input clock and blue represents the output clock.
 ### PLL System:
 Here, we have shown simulations for 2 cases for a 8x clock multiplier PLL system:  
 
-1) When input frequency is 5MHz, then output frequency is 40MHz:  
+1) When input frequency is 5MHz, then output frequency is 40MHz:   
 
 ![image](https://user-images.githubusercontent.com/88243788/127910751-2a910c02-9b27-40f8-9b6b-def92827186c.png)
 
@@ -315,8 +315,10 @@ It refers to preparing the final layout design and sending it to the fab. It is 
 
 Some additional preparations are also required before sending final design to the fab. Considering the complexity involved in each of these additional supports, a special SoC template made by Efabless is used that helps the designer to neglect the preparations to be done. It contains all the necessary support that one needs for our design to be ready for tapeout.  
 
-![image](https://user-images.githubusercontent.com/88243788/127925872-f40cd8ac-b024-4e65-a9ae-3dc7942c4e10.png)
-
+<p align="center">
+  <img src="Caravel.PNG">  
+</p>
+  
 In the IC template shown above, the User's project area is the region where our layout design is placed. In a way, this acts as a vehicle that carries our design. Hence, it is called Caravel SoC. The IC shown above gets fabricated alongside our design inside it. Moreover, one need not integrate the user's project area onto the caravel. 
 
 # ACKNOWLEDGEMENT:  
