@@ -7,7 +7,7 @@
 In this era of information, analog domain has become a challenging and an important part of IC design. Almost all electronic systems are susceptible to noise and mismatch. PLL is a an important element that is found in radio, telecommunications, oscillators among others. In this regard, a 2-day workshop on Phase-locked loop (PLL) IC design by VSD-IAT was conducted from 31st July, 2021 to 1st August, 2021. The workshop covered the basic understanding of all the different blocks that make up a PLL. Using open-source tools such as Ngspice, Magic and Google-Skywater 130nm PDK, a 8x PLL clock multiplier IC was designed. Both pre-layout and post-layout simulations were carried out and detailed analysis was done to get an intuitive understanding of VLSI design flow (starts from device level to tapeout stage). Basic understanding of electric circuits is beneficial for a beginner.
 
 # CONTENTS:
-1) Day 1:  
+- Day 1:  
   PLL Theory  
   Phase-Frequency detector  
   Charge pump  
@@ -17,27 +17,27 @@ In this era of information, analog domain has become a challenging and an import
   Tool setup  
   Development Flow  
   PLL Specifications  
-2) Day 2: Simulations  
-  Pre-Layout Simulations  
+- Day 2: Simulations  
+  - Pre-Layout Simulations  
     - Phase-Frequency detector  
     - Charge pump  
     - Voltage-controlled oscillator  
-    - Frequency dividor  
+    - Frequency divider  
     - Troubleshooting Steps  
-  Layout Design  
+  - Layout Design  
     - Phase-Frequency detector  
     - Charge pump  
     - Voltage-controlled oscillator  
-    - Frequency dividor  
+    - Frequency divider  
     - MUX  
     - PLL System  
-  Post-Layout Simulations  
+  - Post-Layout Simulations  
     - Phase-Frequency detector  
     - Charge pump  
     - Voltage-controlled oscillator  
-    - Frequency dividor  
-  Tapeout
-  Acknowledgement
+    - Frequency divider  
+  - Tapeout  
+  - Acknowledgement
   
 
 # Day 1:  
