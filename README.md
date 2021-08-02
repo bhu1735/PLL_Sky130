@@ -8,7 +8,7 @@ In this era of information, analog domain has become a challenging and an import
 
 # CONTENTS:
 - Day 1:  
-  - PLL Theory  
+  - [PLL Theory](#pll-theory)  
   - Phase-Frequency detector  
   - Charge pump  
   - Loop filter  
