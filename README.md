@@ -74,14 +74,14 @@ To implement PFD, since we have to detect falling edges of two different signals
 
 ![image](https://user-images.githubusercontent.com/88243788/127892546-30bed6be-2f82-4080-9808-4f073514d9a0.png)
 
-However, one main issue with above configuration is the presence of Dead zone. It refers to the smallest difference in phase or frequency that the PFD is able to measure accurately without affecting the stability of the system. Any logic gate implemented in real life will have some delay associate with it. This delay makes the presence of Dead zone inevitable for PFD block.
+However, one main issue with above configuration is the presence of Dead zone. It refers to the smallest difference in phase or frequency that the PFD is able to measure accurately without affecting the stability of the system. Any logic gate implemented in real life will have some delay associate with it. This delay makes the presence of dead zone inevitable for PFD block.
 
 ## Charge Pump (CP):
 The role of a charge pump in PLL is to convert the difference in phase/frequency measured digitally into an analog signal that can be used to control the voltage-controlled oscillator (VCO). This is achieved using current steering circuit. This circuit steers/directs the current flow from supply to output or output to ground depending on the UP and DOWN signal that is provided. The charge pump circuit gives an output voltage which corresponds to the average active time of UP and DOWN signals.
 
 ![image](https://user-images.githubusercontent.com/88243788/127896005-6398402a-e28e-4703-8d1f-6ccfa52c9936.png)
 
-One main issue with the above transistor level design is that when the up and down transistors are OFF (Mpcsr and Mncsr), there is still some current flowing through them in form of leakage which may continue to charge the load capacitor. This is referred to as Charge leakage. To tackle this issue, an additional set of transistors as shown below:
+One main issue with the above transistor level design is that when the up and down transistors are OFF (Mpcsr and Mncsr), there is still some current flowing through them in form of leakage which may continue to charge the load capacitor. This is referred to as charge leakage. To tackle this issue, an additional set of transistors as shown below:
 
 ![image](https://user-images.githubusercontent.com/88243788/127900524-7a1f7ee7-49f6-4fd2-a1f2-7b94d90eae73.png)
 
