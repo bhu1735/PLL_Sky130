@@ -327,6 +327,6 @@ magic -T sky130A.tech user_analog_project_wrapper_empty.gds
 The caravel user project area contains the input-output pins (fixed) along the border. The design is placed in this area and proper connections are made following which the whole project area is placed onto the caravel SoC. One must take care while making connections between different metal layers. The completed design is then sent to the fab to proceed with the tapeout.  
 
 # ACKNOWLEDGEMENT:  
-1) I would like to thank Mr. Kunal Ghosh (Co-founder VSD), for providing me an opportunity to partake in this workshop and understand VLSI design flow process both theoritically and practically.
+1) I would like to thank Mr. Kunal Ghosh (Co-founder VSD), for providing me an opportunity to partake in this workshop and help understand VLSI design flow process both theoritically and practically.
 2) I would also like to thank Ms. Lakshmi S. for providing access to spice files and guidance throughout for the implementation of PLL system. 
 3) Lastly, I appreciate the TAs for clarifying my doubts during lab sessions without which this work would not have been made presentable.
