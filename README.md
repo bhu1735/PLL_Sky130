@@ -104,7 +104,7 @@ The output of a Toggle flip-flop (TFF) will be half the frequency of the input. 
 
 To implement a 8x clock multiplier, we can add 3 TFFs to get the desired result.
 
-Before, proceeding further, we shall look at some common terminologies used:
+Before proceeding further, we shall look at some common terminologies used:
 
 1) Lock Range: The range of frequencies the PLL is able to follow input frequency variations once locked. It is mainly defined by the range of frequencies VCO can produce and is limited by the dead zone of the PFD block.
 2) Capture Range: It refers to the range of frequencies for which the PLL is able to lock-in when starting from an unlocked condition. This is usually smaller than the lock range and depends on the loop filter bandwidth.
