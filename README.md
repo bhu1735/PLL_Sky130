@@ -36,6 +36,7 @@ In this era of information, analog domain has become a challenging and an import
     - Charge pump  
     - Voltage-controlled oscillator  
     - Frequency divider  
+    - PLL System  
   - Tapeout  
   - Acknowledgement
   
@@ -146,8 +147,7 @@ It is often the case that after each step, one needs to make necessary modificat
 7) Jitter (RMS) < 20ns (measure of phase noise)
 8) Duty cycle = 50%
 
-# Day 2:
-## Simulations
+# Day 2: Simulations
 To get started with simulations, it is necessary to create a SPICE file. It is a text file with .cir extension. We will create SPICE files for each of the building blocks of PLL system before proceeding with simulations.
 
 ## Pre-Layout Simulations:
@@ -271,7 +271,27 @@ Here, red represents the output clock whereas blue represents the control voltag
 
 ![image](https://user-images.githubusercontent.com/88243788/127907020-6677865c-a0de-4dcc-a220-2685588633d4.png)
 
-Here, red represents the input clock and blue represents the output clock.
+Here, red represents the input clock and blue represents the output clock.  
+
+### PLL System:
+Here, we have shown simulations for 2 cases for a 8x clock multiplier PLL system:  
+
+1) When input frequency is 5MHz, then output frequency is 40MHz:  
+
+![image](https://user-images.githubusercontent.com/88243788/127910751-2a910c02-9b27-40f8-9b6b-def92827186c.png)
+
+2) When input frequency is 12.5MHz, then output frequency is 100MHz:  
+
+![image](https://user-images.githubusercontent.com/88243788/127910780-3e9a32e6-318f-4789-8d2b-20590250e020.png)
+
+In both the above cases, the color terminology used is:  
+Input reference-> red  
+Output clock-> blue  
+UP signal-> brown  
+DOWN signal-> yellow  
+Charge-pump output-> purple  
+
+
 
 # ACKNOWLEDGEMENT:  
 1) I would like to thank Mr. Kunal Ghosh (Co-founder VSD), for providing me an opportunity to partake in this workshop and understand VLSI design flow process both theoritically and practically.
