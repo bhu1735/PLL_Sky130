@@ -38,7 +38,7 @@ In this era of information, analog domain has become a challenging and an import
     - [Frequency Divider (FD)](#frequency-divider-fd-3)  
     - [PLL System](#pll-system)  
   - [Tapeout](#tapeout)  
-  - [Acknowledgement](#acknowledgement)  
+- [Acknowledgement](#acknowledgement)  
   
 
 # Day 1:  
@@ -98,11 +98,11 @@ A series combination of odd number of inverters is used to make a ring oscillato
 ![image](https://user-images.githubusercontent.com/88243788/127896919-f1616be2-f0b5-48fe-9bab-342c4374d62c.png)
 
 ## Frequency Divider (FD):
-The output of a Toggle flip-flop will be half the frequency of the input. TFF is implemented using DFF as shown below. Here, the faded green signal represents the input reference signal.
+The output of a Toggle flip-flop (TFF) will be half the frequency of the input. TFF is implemented using DFF (Delay flip-flop) as shown below. Here, the faded green signal represents the input reference signal.
 
 ![image](https://user-images.githubusercontent.com/88243788/127897408-95fc3582-edb2-40d2-b00f-87626606c518.png)
 
-Now, to implement a 8x clock multiplier, then we can add 3 TFFs to get the desired result.
+To implement a 8x clock multiplier, we can add 3 TFFs to get the desired result.
 
 Before, proceeding further, we shall look at some common terminologies used:
 
@@ -132,7 +132,7 @@ Magic-> magic -T <Technology_file_from_PDK> <the_layout_file_to_open>
 2) Pre-layout simulation
 3) Layout development
 4) Parasitic extraction
-5) Post-layout simulation (more accurate than pre-layout simulations)
+5) Post-layout simulation (more accurate result than pre-layout simulations)
 
 It is often the case that after each step, one needs to make necessary modifications to the circuit
 
@@ -145,7 +145,7 @@ It is often the case that after each step, one needs to make necessary modificat
 5) Input Fmin= 5MHz , Fmax= 12.5MHz
 6) Multiplier = 8x
 7) Jitter (RMS) < 20ns (measure of phase noise)
-8) Duty cycle = 50%
+8) Duty cycle ~ 50%
 
 # Day 2: Simulations
 To get started with simulations, it is necessary to create a SPICE file. It is a text file with .cir extension. We will create SPICE files for each of the building blocks of PLL system before proceeding with simulations.
@@ -305,7 +305,8 @@ UP signal-> brown
 DOWN signal-> yellow  
 Charge-pump output-> purple  
 
-
+## Tapeout:
+It refers to preparing the final layout design and sending it to the fab. It is also referred to as final GDS layout file.
 
 # ACKNOWLEDGEMENT:  
 1) I would like to thank Mr. Kunal Ghosh (Co-founder VSD), for providing me an opportunity to partake in this workshop and understand VLSI design flow process both theoritically and practically.
