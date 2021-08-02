@@ -14,6 +14,7 @@ In this era of information, analog domain has become a challenging and an import
   - [Loop Filter](#loop-filter)  
   - [Voltage Controlled Oscillator (VCO)](#voltage-controlled-oscillator-vco)  
   - [Frequency Divider (FD)](#frequency-divider-fd)  
+  - [Terminologies in PLL](#terminologies-in-pll)
   - [Tool Setup](#tool-setup)  
   - [Development Flow](#development-flow)  
   - [PLL Specifications](#pll-specifications)  
@@ -72,7 +73,7 @@ Similarly, for signals of different frequency, if the output signal frequency is
 
 To implement PFD, since we have to detect falling edges of two different signals, one uses 2 edge-triggered flip-flops as shown below. Moreover from the understanding established above in regards to UP and DOWN signals, one would require AND gate as well.
 
-![image](https://user-images.githubusercontent.com/88243788/127892546-30bed6be-2f82-4080-9808-4f073514d9a0.png)
+![image](https://user-images.githubusercontent.com/88243788/127933159-9a54aae2-7008-477a-b1e1-4126e469bdba.png)
 
 However, one main issue with above configuration is the presence of Dead zone. It refers to the smallest difference in phase or frequency that the PFD is able to measure accurately without affecting the stability of the system. Any logic gate implemented in real life will have some delay associate with it. This delay makes the presence of dead zone inevitable for PFD block.
 
@@ -95,17 +96,19 @@ As a thumb rule, Cx ~= C/10 and the loop filter bandwidth ~= 0.1*(highest output
 ## Voltage Controlled Oscillator (VCO):
 A series combination of odd number of inverters is used to make a ring oscillator. This offers an output whose period is twice the total delay of all the inverters. However, to make it flexible, a current starving mechanism is used to control the oscillating frequency. Two current sources are used as supplies for the ring oscillator. This enable the control on its frequency based on an input-controlled voltage. The VCO is to be designed such that the range of output frequencies we want for the PLL is within the range of frequencies that this VCO can produce properly.
 
-![image](https://user-images.githubusercontent.com/88243788/127896919-f1616be2-f0b5-48fe-9bab-342c4374d62c.png)
+![image](https://user-images.githubusercontent.com/88243788/127933029-01dfa6cd-d1f9-43ff-8520-a6d37f0ba3e3.png)
 
 ## Frequency Divider (FD):
-The output of a Toggle flip-flop (TFF) will be half the frequency of the input. TFF is implemented using DFF (Delay flip-flop) as shown below. Here, the faded green signal represents the input reference signal.
+The output of a Toggle flip-flop (TFF) will be half the frequency of the input. TFF is implemented using DFF (Delay flip-flop) as shown in Fig.(a).  
 
-![image](https://user-images.githubusercontent.com/88243788/127897408-95fc3582-edb2-40d2-b00f-87626606c518.png)
+![image](https://user-images.githubusercontent.com/88243788/127934207-de029c10-be8e-491b-93b0-9d369087e56f.png)
 
+The circuit implemented in Fig.(a) can be implemented again using 4 inverters and 2 transmission gates (Fig.(b)). The set of inverters and tranmission gates in series is forming a simplified DFF. Fig.(c) and Fig.(d) represent the clock and desired output waveforms. Here, the faded green signal represents the input reference signal.  
 To implement a 8x clock multiplier, we can add 3 TFFs to get the desired result.
 
-Before proceeding further, we shall look at some common terminologies used:
+Before proceeding with tool setup, we need to address some important terms associated with PLL.  
 
+## Terminologies in PLL:
 1) Lock Range: The range of frequencies the PLL is able to follow input frequency variations once locked. It is mainly defined by the range of frequencies VCO can produce and is limited by the dead zone of the PFD block.
 2) Capture Range: It refers to the range of frequencies for which the PLL is able to lock-in when starting from an unlocked condition. This is usually smaller than the lock range and depends on the loop filter bandwidth.
 3) Settling Time: It is the time within which the PLL is able to lock-in from an unlocked condition. This depends on how quickly the charge pump rises to a stable value.
