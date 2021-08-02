@@ -319,7 +319,12 @@ Some additional preparations are also required before sending final design to th
   <img src="Caravel.PNG">  
 </p>
   
-In the IC template shown above, the User's project area is the region where our layout design is placed. In a way, this acts as a vehicle that carries our design. Hence, it is called Caravel SoC. The IC shown above gets fabricated alongside our design inside it. Moreover, one need not integrate the user's project area onto the caravel. 
+In the IC template shown above, the User's project area is the region where our layout design is placed. In a way, this acts as a vehicle that carries our design. Hence, it is called Caravel SoC. The IC shown above gets fabricated alongside our design inside it. Moreover, one need not integrate the user's project area onto the caravel.  
+
+For the tapeout process, one first needs to download and extract the GDS file of user project area available on https://github.com/efabless under caravel_user_project_analog template. Open the GDS file using following command:  
+magic -T sky130A.tech user_analog_project_wrapper_empty.gds  
+
+The caravel user project area contains the input-output pins (fixed) along the border. The design is placed in this area and proper connections are made following which the whole project area is placed onto the caravel SoC. One must take care while making connections between different metal layers. The completed design is then sent to the fab to proceed with the tapeout.  
 
 # ACKNOWLEDGEMENT:  
 1) I would like to thank Mr. Kunal Ghosh (Co-founder VSD), for providing me an opportunity to partake in this workshop and understand VLSI design flow process both theoritically and practically.
