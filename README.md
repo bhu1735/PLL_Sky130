@@ -306,7 +306,18 @@ DOWN signal-> yellow
 Charge-pump output-> purple  
 
 ## Tapeout:
-It refers to preparing the final layout design and sending it to the fab. It is also referred to as final GDS layout file.
+It refers to preparing the final layout design and sending it to the fab. It is also referred to as final GDS layout file. To prepare our design, additional support is required such as:  
+
+1) I/O Pads: Since our design is in 'um' range, using wires to connect to external world is not feasible. I/O pads are used to provide a proper interface.  
+2) Peripherals: For serial connectivity such as I2C, SPI, UART, etc.  
+3) Memory: To store data on-chip, memory IP is used instead of memory text which take up a lot of space.  
+4) Testing mechanisms: Debug mode required to ensure proper functioning of external IC.  
+
+Some additional preparations are also required before sending final design to the fab. Considering the complexity involved in each of these additional supports, a special SoC template made by Efabless is used that helps the designer to neglect the preparations to be done. It contains all the necessary support that one needs for our design to be ready for tapeout.  
+
+![image](https://user-images.githubusercontent.com/88243788/127925872-f40cd8ac-b024-4e65-a9ae-3dc7942c4e10.png)
+
+In the IC template shown above, the User's project area is the region where our layout design is placed. In a way, this acts as a vehicle that carries our design. Hence, it is called Caravel SoC. The IC shown above gets fabricated alongside our design inside it. Moreover, one need not integrate the user's project area onto the caravel. 
 
 # ACKNOWLEDGEMENT:  
 1) I would like to thank Mr. Kunal Ghosh (Co-founder VSD), for providing me an opportunity to partake in this workshop and understand VLSI design flow process both theoritically and practically.
