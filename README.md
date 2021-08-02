@@ -7,38 +7,38 @@
 In this era of information, analog domain has become a challenging and an important part of IC design. Almost all electronic systems are susceptible to noise and mismatch. PLL is a an important element that is found in radio, telecommunications, oscillators among others. In this regard, a 2-day workshop on Phase-locked loop (PLL) IC design by VSD-IAT was conducted from 31st July, 2021 to 1st August, 2021. The workshop covered the basic understanding of all the different blocks that make up a PLL. Using open-source tools such as Ngspice, Magic and Google-Skywater 130nm PDK, a 8x PLL clock multiplier IC was designed. Both pre-layout and post-layout simulations were carried out and detailed analysis was done to get an intuitive understanding of VLSI design flow (starts from device level to tapeout stage). Basic understanding of electric circuits is beneficial for a beginner.
 
 # CONTENTS:
-- Day 1:  
+- [Day 1](#day-1):  
   - [PLL Theory](#pll-theory)  
-  - Phase-Frequency detector  
-  - Charge pump  
-  - Loop filter  
-  - Voltage-controlled oscillator  
-  - Frequency dividor  
-  - Tool setup  
-  - Development Flow  
-  - PLL Specifications  
-- Day 2: Simulations  
-  - Pre-Layout Simulations  
-    - Phase-Frequency detector  
-    - Charge pump  
-    - Voltage-controlled oscillator  
-    - Frequency divider  
-    - Troubleshooting Steps  
-  - Layout Design  
-    - Phase-Frequency detector  
-    - Charge pump  
-    - Voltage-controlled oscillator  
-    - Frequency divider  
-    - MUX  
-    - PLL System  
-  - Post-Layout Simulations  
-    - Phase-Frequency detector  
-    - Charge pump  
-    - Voltage-controlled oscillator  
-    - Frequency divider  
-    - PLL System  
-  - Tapeout  
-  - Acknowledgement
+  - [Phase-Frequency Detector](#phase-frequency-detector)  
+  - [Charge Pump](#charge-pump)  
+  - [Loop Filter](#loop-filter)  
+  - [Voltage Controlled Oscillator](#voltage-controlled-oscillator)  
+  - [Frequency Divider](#frequency-divider)  
+  - [Tool Setup](#tool-setup)  
+  - [Development Flow](#development-flow)  
+  - [PLL Specifications](#pll-specifications)  
+- [Day 2: Simulations](#day-2-simulations):  
+  - [Pre-Layout Simulations](#pre-layout-simulations)  
+    - [Phase-Frequency Detector](#phase-frequency-detector)  
+    - [Charge Pump](#charge-pump)  
+    - [Voltage Controlled Oscillator](#voltage-controlled-oscillator)  
+    - [Frequency Divider](#frequency-divider)  
+    - [Troubleshooting Steps](#troubleshooting-steps)  
+  - [Layout Design](#layout-design)  
+    - [Phase-Frequency Detector](#phase-frequency-detector)  
+    - [Charge Pump](#charge-pump)  
+    - [Voltage Controlled Oscillator](#voltage-controlled-oscillator)  
+    - [Frequency Divider](#frequency-divider)  
+    - [MUX](#mux)  
+    - [PLL System](#pll-system)  
+  - [Post-Layout Simulations](#post-layout-simulations)  
+    - [Phase-Frequency Detector](#phase-frequency-detector)  
+    - [Charge Pump](#charge-pump)  
+    - [Voltage Controlled Oscillator](#voltage-controlled-oscillator)  
+    - [Frequency Divider](#frequency-divider)  
+    - [PLL System](#pll-system)  
+  - [Tapeout](#tapeout)  
+  - [Acknowledgement](#acknowledgement)  
   
 
 # Day 1:  
@@ -92,12 +92,12 @@ Recall, the output capacitor of the CP circuit helps smoothens the output. Howev
 
 As a thumb rule, Cx ~= C/10 and the loop filter bandwidth ~= 0.1*(highest output frequency intend to give for a PLL) for stability of the system.
 
-## Voltage-controlled Oscillator (VCO):
+## Voltage Controlled Oscillator (VCO):
 A series combination of odd number of inverters is used to make a ring oscillator. This offers an output whose period is twice the total delay of all the inverters. However, to make it flexible, a current starving mechanism is used to control the oscillating frequency. Two current sources are used as supplies for the ring oscillator. This enable the control on its frequency based on an input-controlled voltage. The VCO is to be designed such that the range of output frequencies we want for the PLL is within the range of frequencies that this VCO can produce properly.
 
 ![image](https://user-images.githubusercontent.com/88243788/127896919-f1616be2-f0b5-48fe-9bab-342c4374d62c.png)
 
-## Frequency divider (FD):
+## Frequency Divider (FD):
 The output of a Toggle flip-flop will be half the frequency of the input. TFF is implemented using DFF as shown below. Here, the faded green signal represents the input reference signal.
 
 ![image](https://user-images.githubusercontent.com/88243788/127897408-95fc3582-edb2-40d2-b00f-87626606c518.png)
@@ -154,7 +154,7 @@ To get started with simulations, it is necessary to create a SPICE file. It is a
 To run pre-layout simulations the command is:  
 ngspice <file_name>.cir  
 
-### Phase-Frequency detector (PFD):
+### Phase-Frequency Detector (PFD):
 
 ![image](https://user-images.githubusercontent.com/88243788/127902238-124764cb-b3b6-4c0b-b7a2-c239e0f3db27.png)
 
@@ -164,13 +164,13 @@ Blue: Clock 2
 Orange: UP Signal  
 Green: DOWN Signal
 
-### Charge-Pump (CP):
+### Charge Pump (CP):
 
 ![image](https://user-images.githubusercontent.com/88243788/127902497-9be94f90-ef67-423c-9b82-ae9b3491d84e.png)
 
 Clearly, slope is 40 V/s.
 
-### Voltage-Controlled Oscillator (VCO):
+### Voltage Controlled Oscillator (VCO):
 
 ![image](https://user-images.githubusercontent.com/88243788/127902964-f830835f-1f20-4517-a464-c4bd70ccfd93.png)
 
@@ -214,11 +214,11 @@ We shall now look at the layouts of the different blocks of PLL system.
 
 ![image](https://user-images.githubusercontent.com/88243788/127904631-03b2f06a-de8b-4565-b223-1ad6cb00faeb.png)
 
-### Charge-Pump (CP):
+### Charge Pump (CP):
 
 ![image](https://user-images.githubusercontent.com/88243788/127904908-ad8e885d-35c9-4d87-9017-3c343302e055.png)
 
-### Voltage-Controlled Oscillator (VCO)
+### Voltage Controlled Oscillator (VCO)
 
 ![image](https://user-images.githubusercontent.com/88243788/127904974-5b2de1a3-4d4f-4d36-ae74-6e4751f0a0f1.png)
 
@@ -256,7 +256,7 @@ Clock2-> blue
 UP signal-> orange  
 DOWN signal-> green  
 
-### Charge-Pump (CP):
+### Charge Pump (CP):
 
 Below is the case when UP signal is ACTIVE (= '1'):  
 
@@ -275,13 +275,13 @@ UP signal-> red
 DOWN signal-> blue  
 Output voltage (of CP block)-> orange  
 
-### Voltage-Controlled Oscillator (VCO):
+### Voltage Controlled Oscillator (VCO):
 
 ![image](https://user-images.githubusercontent.com/88243788/127906868-c4d1cfaf-39a1-4ead-80d5-a003558444ca.png)
 
 Here, red represents the output clock whereas blue represents the control voltage.  
 
-### Frequency-Divider (FD):
+### Frequency Divider (FD):
 
 ![image](https://user-images.githubusercontent.com/88243788/127907020-6677865c-a0de-4dcc-a220-2685588633d4.png)
 
