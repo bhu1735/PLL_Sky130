@@ -210,7 +210,7 @@ Color Specifications used:
 While making connections, we use via to connect different metal layers and and interconnect layer between two transistors.  
 We shall now look at the layouts of the different blocks of PLL system.  
 
-### Phase-Frequency Detector:
+### Phase-Frequency Detector (PFD):
 
 ![image](https://user-images.githubusercontent.com/88243788/127904631-03b2f06a-de8b-4565-b223-1ad6cb00faeb.png)
 
@@ -218,7 +218,7 @@ We shall now look at the layouts of the different blocks of PLL system.
 
 ![image](https://user-images.githubusercontent.com/88243788/127904908-ad8e885d-35c9-4d87-9017-3c343302e055.png)
 
-### Voltage Controlled Oscillator (VCO)
+### Voltage Controlled Oscillator (VCO):
 
 ![image](https://user-images.githubusercontent.com/88243788/127904974-5b2de1a3-4d4f-4d36-ae74-6e4751f0a0f1.png)
 
