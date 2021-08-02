@@ -182,7 +182,21 @@ Here, the control voltage is represented byy Red color while output clock is sho
 
 Here, input clock is shown in blue and output clock is shown in red color.  
 
-### Troubleshooting Steps:
+### Troubleshooting Steps:  
+Usually, it so happens that the output doesn't properly lock (or mimic the input reference) due to some errors in circuit designing. In such a case, following sequence of steps are usually followed:  
+
+- Identify the issues that might be occurring in the simulations or circuit.
+- Try to debug individual components and confirm their functionality before simulating the entire circuit.  
+- If the waveforms are flat or simulation is crashing, then:  
+  - Check whether all connectivities have been done properly.  
+  - Check the spelling of each net, model name, case-sensitive issues, parameter value assignment.  
+  - Check if any pin is left unconnected.  
+- In case of correct waveforms but improper mimicking, then:  
+  - Find the range of frequencies for which VCO is working properly. The required output frequency range should lie within VCOs frequency range.  
+  - Check if the PFD block is able to detect minute (small) changes in the phase difference properly; else it may lead to phase noise in the system. This may cause the PLL system to become unstable.  
+  - Rate at which the output of charge-pump block is charging/discharging. In case of fluctuations in the output voltage, one may need to re-size the transistors appropriately to get a smooth response.  
+  - Check whether output is charging in case of no input (i.e. input is 0). If yes, then charge leakage is the main issue.  
+  - Adjust the loop filter values (while ensuring the stability of the system) to get desired response.  
 
 ## Layout Design:
 Color Specifications used:
