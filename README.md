@@ -6,6 +6,27 @@
 # DESCRIPTION:  
 In this era of information, analog domain has become a challenging and an important part of IC design. Almost all electronic systems are susceptible to noise and mismatch. PLL is a an important element that is found in radio, telecommunications, oscillators among others. In this regard, a 2-day workshop on Phase-locked loop (PLL) IC design by VSD-IAT was conducted. The workshop covered the basic understanding of all the different blocks that make up a PLL. Using open-source tools such as Ngspice, Magic and Google-Skywater 130nm PDK, a 8x PLL clock multiplier IC was designed. Both pre-layout and post-layout simulations were carried out and detailed analysis was done to get an intuitive understanding of VLSI design flow (starts from device level to tapeout stage). Basic understanding of electric circuits is beneficial for a beginner.
 
+# CONTENTS:
+1) Day 1:  
+  PLL Theory  
+  Phase-Frequency detector  
+  Charge pump  
+  Loop filter  
+  Voltage-controlled oscillator  
+  Frequency dividor  
+  Tool setup  
+  Development Flow  
+  PLL Specifications  
+2) Day 2:  
+  Simulations
+  PLL Theory  
+  Phase-Frequency detector  
+  Charge pump  
+  Loop filter  
+  Voltage-controlled oscillator  
+  Frequency dividor  
+
+
 # Day 1:  
 ## PLL Theory:  
 A phase-locked loop (PLL) is a control system that compares the phase of input reference signal and output desired signal through a feedback loop. The goal of PLL system is to generate a very precise clock signal without frequency or phase noise and at the same time have the flexibility of running at the desired frequency.  
@@ -46,7 +67,9 @@ The role of a charge pump in PLL is to convert the difference in phase/frequency
 
 ![image](https://user-images.githubusercontent.com/88243788/127896005-6398402a-e28e-4703-8d1f-6ccfa52c9936.png)
 
-One main issue with the above transistor level design is that when the up and down transistors are OFF (Mpcsr and Mncsr), there is still some current flowing through them in form of leakage which may continue to charge the load capacitor. This is referred to as Charge leakage.
+One main issue with the above transistor level design is that when the up and down transistors are OFF (Mpcsr and Mncsr), there is still some current flowing through them in form of leakage which may continue to charge the load capacitor. This is referred to as Charge leakage. To tackle this issue, an additional set of transistors as shown below:
+
+![image](https://user-images.githubusercontent.com/88243788/127900524-7a1f7ee7-49f6-4fd2-a1f2-7b94d90eae73.png)
 
 ## Loop Filter:
 Recall, the output capacitor of the CP circuit helps smoothens the output. However, there are still fluctuations caused due to rise and fall of UP and DOWN signals. To mitigate this, one may use a low-pass filter (LPF) at the output instead of just a capacitor. This smoothens out any high-frequency fluctuations in the output. It also helps in stabilizing the PLL system. Recall, a loop filter is same as adding a zero to the frequency domain of the PLL which enable the system to be stable. Without LPF, the PLL cannot lock and mimic the reference signal.  
@@ -77,11 +100,165 @@ Before, proceeding further, we shall look at some common terminologies used:
 Following open-source tools were needed for PLL IC design:
 1) Ngspice- for transistor level spice simulations
 2) Magic- for layout design and parasitic extraction
-3) Google-Skywater 130 PDK- for specifications of the transistors
+3) Google-Skywater 130nm PDK- for primitive libraries of the transistors to be used during simulations using Ngspice
 4) Caravel- a medium to ensure that the designed IP is tapeout ready
 
+Note: A PDK (process-development kit) is a collection of libraries, standard cells and other files which are required for desiging an IC.
 
+To install:  
+Ngspice-> sudo apt-install ngspice (from here we fetch Sky130nm library file)  
+Magic-> We need to git clone the source code from opendesigncircuit.com. Then we install the dependencies followed by Magic tool. This is followed by compilation using following command: sudo make install  
 
+To use/run a circuit file using:  
+Ngspice-> ngsice <circuit_file_name>  
+Magic-> magic -T <Technology_file_from_PDK> <the_layout_file_to_open>  
+
+## Development Flow:
+1) SPICE-level circuit development
+2) Pre-layout simulation
+3) Layout development
+4) Parasitic extraction
+5) Post-layout simulation (more accurate than pre-layout simulations)
+
+It is often the case that after each step, one needs to make necessary modifications to the circuit
+
+## PLL Specifications:
+
+1) Corner- 'TT' (Typical-Typical)
+2) Supply voltage= 1.8 V
+3) Temperature = Room temperature
+4) VCO mode and PLL mode
+5) Input Fmin= 5MHz , Fmax= 12.5MHz
+6) Multiplier = 8x
+7) Jitter (RMS) < 20ns (measure of phase noise)
+8) Duty cycle = 50%
+
+# Day 2:
+## Simulations
+To get started with simulations, it is necessary to create a SPICE file. It is a text file with .cir extension. We will create SPICE files for each of the building blocks of PLL system before proceeding with simulations.
+
+## Pre-Layout Simulations:
+To run pre-layout simulations the command is:  
+ngspice <file_name>.cir  
+
+### Phase-Frequency detector (PFD):
+
+![image](https://user-images.githubusercontent.com/88243788/127902238-124764cb-b3b6-4c0b-b7a2-c239e0f3db27.png)
+
+In above graph, the different colors represent:  
+Red: Clock 1  
+Blue: Clock 2  
+Orange: UP Signal  
+Green: DOWN Signal
+
+### Charge-Pump (CP):
+
+![image](https://user-images.githubusercontent.com/88243788/127902497-9be94f90-ef67-423c-9b82-ae9b3491d84e.png)
+
+Clearly, slope is 40 V/s.
+
+### Voltage-Controlled Oscillator (VCO):
+
+![image](https://user-images.githubusercontent.com/88243788/127902964-f830835f-1f20-4517-a464-c4bd70ccfd93.png)
+
+Here, the control voltage is represented byy Red color while output clock is shown by blue color.  
+
+### Frequency Divider (FD):
+
+![image](https://user-images.githubusercontent.com/88243788/127903180-c1528b85-53fb-4aeb-94c8-f1ea0ab2db38.png)
+
+Here, input clock is shown in blue and output clock is shown in red color.  
+
+## Troubleshooting Steps:
+
+## Layout:
+Color Specifications used:
+1) p-diffusion - orange  
+2) n-diffusion - green  
+3) Polysilicon - red  
+4) n-well - dashed lines  
+5) Metal1 layer - purple  
+6) Local interconnect layer - blue
+
+While making connections, we use via to connect different metal layers and and interconnect layer between two transistors.  
+We shall now look at the layouts of the different blocks of PLL system.  
+
+### Phase-Frequency Detector:
+
+![image](https://user-images.githubusercontent.com/88243788/127904631-03b2f06a-de8b-4565-b223-1ad6cb00faeb.png)
+
+### Charge-Pump (CP):
+
+![image](https://user-images.githubusercontent.com/88243788/127904908-ad8e885d-35c9-4d87-9017-3c343302e055.png)
+
+### Voltage-Controlled Oscillator (VCO)
+
+![image](https://user-images.githubusercontent.com/88243788/127904974-5b2de1a3-4d4f-4d36-ae74-6e4751f0a0f1.png)
+
+### Frequency Divider (FD):
+
+![image](https://user-images.githubusercontent.com/88243788/127905002-c0d8bde5-704b-48da-9dbe-4c7167128d07.png)
+
+### MUX:
+
+![image](https://user-images.githubusercontent.com/88243788/127905077-442151cb-5581-4c14-b11f-97dee7f13110.png)
+
+### PLL system:
+
+![image](https://user-images.githubusercontent.com/88243788/127905043-03babaee-b073-429b-8a32-39d3a1852a98.png)
+
+## Post-Layout Simulations:
+To run post-layout simulations, the command is:  
+ngspice <file_name>.cir  
+Example: ngspice PFD_PostLay.cir  
+Here, we conduct post-layout simulations for all the blocks of PLL system.
+
+### Phase-Frequency Detector (PFD):
+
+Below waveforms represent the case when UP signal is ACTIVE:  
+
+![image](https://user-images.githubusercontent.com/88243788/127905677-0984bb9b-f8f3-4181-840b-52fc2c904c6f.png)
+
+Whereas, below is the case, when DOWN signal is ACTIVE:
+
+![image](https://user-images.githubusercontent.com/88243788/127905722-44a2248c-f66f-4c34-bb43-6df2e1b8960d.png)
+
+In both above cases, color terminology used is:  
+Clock1-> red  
+Clock2-> blue  
+UP signal-> orange  
+DOWN signal-> green  
+
+### Charge-Pump (CP):
+
+Below is the case when UP signal is ACTIVE (= '1'):  
+
+![image](https://user-images.githubusercontent.com/88243788/127906205-a88e1b79-4cc3-44d5-9cc6-b4e76503f2f4.png)
+
+Below is the case when DOWN signal is ACTIVE (= '1'):  
+
+![image](https://user-images.githubusercontent.com/88243788/127906322-ad405a49-15a2-49d5-8b39-50db6afa2043.png)
+
+However, recall one of the main limitations of CP is charge leakage which causes output to charge in absence of input. This is demonstrated in below waveform.  
+
+![image](https://user-images.githubusercontent.com/88243788/127906520-ad0cab84-724e-488c-878c-786f28b54915.png)
+
+In all the waveforms above, the color terminology is as follows:  
+UP signal-> red  
+DOWN signal-> blue  
+Output voltage (of CP block)-> orange  
+
+### Voltage-Controlled Oscillator (VCO):
+
+![image](https://user-images.githubusercontent.com/88243788/127906868-c4d1cfaf-39a1-4ead-80d5-a003558444ca.png)
+
+Here, red represents the output clock whereas blue represents the control voltage.  
+
+### Frequency-Divider (FD):
+
+![image](https://user-images.githubusercontent.com/88243788/127907020-6677865c-a0de-4dcc-a220-2685588633d4.png)
+
+Here, red represents the input clock and blue represents the output clock.
 
 # ACKNOWLEDGEMENT:  
 1) I would like to thank Mr. Kunal Ghosh (Co-founder VSD), for providing me an opportunity to partake in this workshop and understand VLSI design flow process both theoritically and practically.
