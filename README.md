@@ -388,13 +388,13 @@ It refers to preparing the final layout design and sending it to the fab. It is 
 3) Memory: To store data on-chip, memory IP is used instead of memory text which take up a lot of space.  
 4) Testing mechanisms: Debug mode required to ensure proper functioning of external IC.  
 
-Some additional preparations are also required before sending final design to the fab. Considering the complexity involved in each of these additional supports, a special SoC template made by Efabless is used that helps the designer to neglect the preparations to be done. It contains all the necessary support that one needs for our design to be ready for tapeout.  
+Some additional preparations are also required before sending final design to the fab. Considering the complexity involved in each of these additional supports, a special SoC template made by Efabless is used that helps the designer to neglect the preparations to be done. It contains all the necessary support that one needs for the design to be ready for tapeout.  
 
 <p align="center">
   <img src="Caravel.PNG">  
 </p>
   
-In the IC template shown above, the User's project area is the region where our layout design is placed. In a way, this acts as a vehicle that carries our design. Hence, it is called Caravel SoC. The IC shown above gets fabricated alongside our design inside it. Moreover, one need not integrate the user's project area onto the caravel.  
+In the IC template shown above, the User's project area is the region where the layout design is placed. In a way, this acts as a vehicle that carries the design. Hence, it is called Caravel SoC. The IC shown above gets fabricated alongside the layout design inside it. Moreover, one need not integrate the user's project area onto the caravel.  
 
 For the tapeout process, one first needs to download and extract the GDS file of user project area available on https://github.com/efabless under caravel_user_project_analog template. Open the GDS file using following command:  
 magic -T sky130A.tech user_analog_project_wrapper_empty.gds  
