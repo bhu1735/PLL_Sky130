@@ -24,6 +24,7 @@ In this era of information, analog domain has become a challenging and an import
     - [Charge Pump (CP)](#charge-pump-cp-1)  
     - [Voltage Controlled Oscillator (VCO)](#voltage-controlled-oscillator-vco-1)  
     - [Frequency Divider (FD)](#frequency-divider-fd-1)  
+    - [PLL System](#pll-system)
     - [Troubleshooting Steps](#troubleshooting-steps)  
   - [Layout Design](#layout-design)  
     - [Phase-Frequency Detector (PFD)](#phase-frequency-detector-pfd-2)  
@@ -205,6 +206,24 @@ Here, the control voltage is represented byy Red color while output clock is sho
 
 Here, input clock is shown in blue and output clock is shown in red color.  
 
+### PLL System:
+Here, we have shown simulations for 2 cases for a 8x clock multiplier PLL system:  
+
+1) When input frequency is 5MHz, then output frequency is 40MHz:   
+
+![image](https://user-images.githubusercontent.com/88243788/127943143-8e288313-5391-4c49-b525-75590b9f7a87.png)
+
+2) When input frequency is 12.5MHz, then output frequency is 100MHz:  
+
+![image](https://user-images.githubusercontent.com/88243788/127943188-a88eafc3-7a58-4762-8cdb-000f12652dde.png)
+
+In both the above cases, the color terminology used is:  
+Input reference-> red  
+Output frequency divided by 8 clock-> blue  
+UP signal-> brown  
+DOWN signal-> yellow  
+Charge-pump output-> purple  
+
 ### Troubleshooting Steps:  
 Usually, it so happens that the output doesn't properly lock (or mimic the input reference) due to some errors in circuit designing. In such a case, following sequence of steps are usually followed:  
 
@@ -328,7 +347,7 @@ Here, we have shown simulations for 2 cases for a 8x clock multiplier PLL system
 
 In both the above cases, the color terminology used is:  
 Input reference-> red  
-Output clock-> blue  
+Output frequency divided by 8 clock-> blue  
 UP signal-> brown  
 DOWN signal-> yellow  
 Charge-pump output-> purple  
