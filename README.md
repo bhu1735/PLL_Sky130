@@ -253,12 +253,12 @@ Usually, it so happens that the output doesn't properly lock (or mimic the input
 
 ## Layout Design:
 Color Specifications used:
-1) p-diffusion - orange  
-2) n-diffusion - green  
-3) Polysilicon - red  
-4) n-well - dashed lines  
-5) Metal1 layer - purple  
-6) Local interconnect layer - blue
+1) p-diffusion -> orange  
+2) n-diffusion -> green  
+3) Polysilicon -> red  
+4) n-well -> dashed lines  
+5) Metal1 layer -> purple  
+6) Local interconnect layer -> blue
 
 While making connections, we use via to connect different metal layers and and interconnect layer between two transistors.  
 We shall now look at the layouts of the different blocks of PLL system.  
