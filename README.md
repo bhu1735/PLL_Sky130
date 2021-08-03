@@ -126,7 +126,10 @@ Following open-source tools were needed for PLL IC design:
 Note: A PDK (process-development kit) is a collection of libraries, standard cells and other files which are required for desiging an IC.
 
 To install:  
-1) Ngspice-> sudo apt-get install ngspice (from here we fetch Sky130nm libraries that contains transistor level information)  
+1) Ngspice-> sudo apt-get install ngspice (from here we fetch Sky130nm libraries that contains transistor level information). Alternatively, one can git clone the source code from an existing repository.  
+
+![image](https://user-images.githubusercontent.com/88243788/127941038-b134be74-5562-4043-92b5-d9328c77a723.png)
+
 2) Magic-> We need to git clone the source code from opendesigncircuit.com (to ensure proper integration of tool with Skywater130nm PDK). Then we install the dependencies followed by Magic tool. The following commands are used for this process:  
    - sudo apt-get update && sudo apt-get upgrade  
    - git clone git://opencircuitdesign.com/magic  
