@@ -86,7 +86,7 @@ The role of a charge pump in PLL is to convert the difference in phase/frequency
 
 ![image](https://user-images.githubusercontent.com/88243788/127896005-6398402a-e28e-4703-8d1f-6ccfa52c9936.png)
 
-One main issue with the above transistor level design is that when the up and down transistors are OFF (Mpcsr and Mncsr), there is still some current flowing through them in form of leakage which may continue to charge the load capacitor. This is referred to as charge leakage. To tackle this issue, an additional set of transistors as shown below:
+One main issue with the above transistor level design is that when the up and down transistors are OFF (Mpcsr and Mncsr), there is still some current flowing through them in form of leakage which may continue to charge the load capacitor. This is referred to as charge leakage. To tackle this issue, an additional set of transistors are added at the output side as shown below:
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/88243788/127900524-7a1f7ee7-49f6-4fd2-a1f2-7b94d90eae73.png">  
@@ -102,7 +102,7 @@ Recall, the output capacitor of the CP circuit helps smoothens the output. Howev
 To ensure stability of system, the designer chooses the values of resistors and capacitors as per a thumb rule mentioned above where the highest output frequency is the desired frequency to give for a PLL.
 
 ## Voltage Controlled Oscillator (VCO):
-A series combination of odd number of inverters is used to make a ring oscillator. This offers an output whose period is twice the total delay of all the inverters. However, to make it flexible, a current starving mechanism is used to control the oscillating frequency. Two current sources are used as supplies for the ring oscillator. This enable the control on its frequency based on an input-controlled voltage. The VCO is to be designed such that the range of output frequencies we want for the PLL is within the range of frequencies that this VCO can produce properly.
+A series combination of odd number of inverters is used to make a ring oscillator. This offers an output whose period is twice the total delay of all the inverters. However, to make it flexible, a current starving mechanism is used to control the oscillating frequency. Two current sources are used as supplies for the ring oscillator. This enable the control on its frequency based on an input-controlled voltage. The VCO is to be designed such that the range of output frequencies we want for the PLL is within the range of frequencies that this VCO can produce properly. To get a full output swing, one may put an extra inverter at the output.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/88243788/127933029-01dfa6cd-d1f9-43ff-8520-a6d37f0ba3e3.png">  
@@ -137,7 +137,7 @@ To install:
 
 ![image](https://user-images.githubusercontent.com/88243788/127941038-b134be74-5562-4043-92b5-d9328c77a723.png)
 
-2) Magic-> We need to git clone the source code from opendesigncircuit.com (to ensure proper integration of tool with Skywater130nm PDK). Then we install the dependencies followed by Magic tool. The following commands are used for this process:  
+2) Magic-> We need to git clone the source code from opendesigncircuit.com (to ensure proper integration of tool with Skywater130nm PDK). The file needed for magic tool is sky130A.tech. Then we install the dependencies followed by Magic tool. The following commands are used for this process:  
    - sudo apt-get update && sudo apt-get upgrade  
    - git clone git://opencircuitdesign.com/magic  
    - sudo apt-get install csh  
@@ -145,6 +145,8 @@ To install:
    - ./configure  
    - make  
    - sudo make install  
+
+Note: In this workshop, we are using preuploaded tech file for magic tool.  
 
 To use/run a circuit file using:  
 1) Ngspice-> ngsice <circuit_file_name>  
@@ -263,7 +265,7 @@ Color Specifications used:
 5) Metal1 layer -> purple  
 6) Local interconnect layer -> blue
 
-While making connections, we use via to connect different metal layers and and interconnect layer between two transistors. To calculate the area of a layout design, select the entire rectangular layout (Press "I") and type keyword "box" in the magic tool command window.  
+While making connections, we use via to connect different metal layers (through overlap) and and interconnect layer between two transistors. To calculate the area of a layout design, select the entire rectangular layout (Press "I") and type keyword "box" in the magic tool command window.  
 We shall now look at the layouts of the different blocks of PLL system.  
 
 ### Phase-Frequency Detector (PFD):
