@@ -88,19 +88,25 @@ The role of a charge pump in PLL is to convert the difference in phase/frequency
 
 One main issue with the above transistor level design is that when the up and down transistors are OFF (Mpcsr and Mncsr), there is still some current flowing through them in form of leakage which may continue to charge the load capacitor. This is referred to as charge leakage. To tackle this issue, an additional set of transistors as shown below:
 
-![image](https://user-images.githubusercontent.com/88243788/127900524-7a1f7ee7-49f6-4fd2-a1f2-7b94d90eae73.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/88243788/127900524-7a1f7ee7-49f6-4fd2-a1f2-7b94d90eae73.png">  
+</p>
 
 ## Loop Filter:
 Recall, the output capacitor of the CP circuit helps smoothens the output. However, there are still fluctuations caused due to rise and fall of UP and DOWN signals. To mitigate this, one may use a low-pass filter (LPF) at the output instead of just a capacitor. This smoothens out any high-frequency fluctuations in the output. It also helps in stabilizing the PLL system. Recall, a loop filter is same as adding a zero to the frequency domain of the PLL which enable the system to be stable. Without LPF, the PLL cannot lock and mimic the reference signal.  
 
-![image](https://user-images.githubusercontent.com/88243788/127896041-afa78acd-cdf5-4fcb-8f7c-ad5bcc18c0e2.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/88243788/127896041-afa78acd-cdf5-4fcb-8f7c-ad5bcc18c0e2.png">  
+</p>
 
 As a thumb rule, Cx ~= C/10 and the loop filter bandwidth ~= 0.1*(highest output frequency intend to give for a PLL) for stability of the system.
 
 ## Voltage Controlled Oscillator (VCO):
 A series combination of odd number of inverters is used to make a ring oscillator. This offers an output whose period is twice the total delay of all the inverters. However, to make it flexible, a current starving mechanism is used to control the oscillating frequency. Two current sources are used as supplies for the ring oscillator. This enable the control on its frequency based on an input-controlled voltage. The VCO is to be designed such that the range of output frequencies we want for the PLL is within the range of frequencies that this VCO can produce properly.
 
-![image](https://user-images.githubusercontent.com/88243788/127933029-01dfa6cd-d1f9-43ff-8520-a6d37f0ba3e3.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/88243788/127933029-01dfa6cd-d1f9-43ff-8520-a6d37f0ba3e3.png">  
+</p>
 
 ## Frequency Divider (FD):
 The output of a Toggle flip-flop (TFF) will be half the frequency of the input. TFF is implemented using DFF (Delay flip-flop) as shown in Fig.(a).  
