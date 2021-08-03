@@ -39,6 +39,7 @@ In this era of information, analog domain has become a challenging and an import
     - [Frequency Divider (FD)](#frequency-divider-fd-3)  
     - [PLL System](#pll-system)  
   - [Tapeout](#tapeout)  
+- [Summary](#summary)  
 - [Acknowledgement](#acknowledgement)  
   
 
@@ -54,7 +55,9 @@ Usually, to generate clock signal, either Quartz crystals or Voltage-controlled 
 
 Note: Spectral purity refers to a frequency spectrum having least amount of unwanted frequencies.  
 
-![image](https://user-images.githubusercontent.com/88243788/127888401-0b01a658-bb59-4ba7-be69-f6ab26f13692.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/88243788/127888401-0b01a658-bb59-4ba7-be69-f6ab26f13692.png">  
+</p>
 
 We shall now look into each block of the PLL system and understand its functionality:
 
@@ -123,32 +126,46 @@ Following open-source tools were needed for PLL IC design:
 Note: A PDK (process-development kit) is a collection of libraries, standard cells and other files which are required for desiging an IC.
 
 To install:  
-Ngspice-> sudo apt-install ngspice (from here we fetch Sky130nm library file)  
-Magic-> We need to git clone the source code from opendesigncircuit.com. Then we install the dependencies followed by Magic tool. This is followed by compilation using following command: sudo make install  
+1) Ngspice-> sudo apt-get install ngspice (from here we fetch Sky130nm libraries that contains transistor level information)  
+2) Magic-> We need to git clone the source code from opendesigncircuit.com (to ensure proper integration of tool with Skywater130nm PDK). Then we install the dependencies followed by Magic tool. The following commands are used for this process:  
+   - sudo apt-get update && sudo apt-get upgrade  
+   - git clone git://opencircuitdesign.com/magic  
+   - sudo apt-get install csh  
+   - cd magic  
+   - ./configure  
+   - make  
+   - sudo make install  
 
 To use/run a circuit file using:  
-Ngspice-> ngsice <circuit_file_name>  
-Magic-> magic -T <Technology_file_from_PDK> <the_layout_file_to_open>  
+1) Ngspice-> ngsice <circuit_file_name>  
+It directly simulates the circuit file and plots the required results.  
+2) Magic-> magic -T <Technology_file_from_PDK> <the_layout_file_to_open>  
+Using this, one gets to open the layout file which can be used to modify the circuit layout. In addition to designing layout, other features are also explored such as parasitic extraction and gds write features.
 
 ## Development Flow:
-1) SPICE-level circuit development
+The process in which the PLL IC is developed consists of a sequence of steps as follows:  
+
+1) SPICE-level circuit development (based on PLL specifications requirements)
 2) Pre-layout simulation
-3) Layout development
-4) Parasitic extraction
+3) Layout development (provides the width of the interconnections, size of different parts of the circuit, etc.)
+4) Parasitic extraction (to extract the capacitive effects caused by the interconnects, etc. to generate a SPICE Netlist.)
 5) Post-layout simulation (more accurate result than pre-layout simulations)
 
-It is often the case that after each step, one needs to make necessary modifications to the circuit
+It is often the case that after each step, one needs to make necessary modifications to the circuit to bring it closer to the required PLL specifications.
 
 ## PLL Specifications:
+As discussed above, before we start with designing circuits, it is necessary to list the specifications for the PLL systems. The specifications gives the operating conditions at which the PLL is to operate.
 
 1) Corner- 'TT' (Typical-Typical)
 2) Supply voltage= 1.8 V
-3) Temperature = Room temperature
+3) Room temperature
 4) VCO mode and PLL mode
-5) Input Fmin= 5MHz , Fmax= 12.5MHz
-6) Multiplier = 8x
-7) Jitter (RMS) < 20ns (measure of phase noise)
-8) Duty cycle ~ 50%
+5) Input frequency range- Fmin= 5MHz , Fmax= 12.5MHz
+6) Clock Multiplier = 8x
+7) Jitter (RMS) < ~20ns (measure of phase noise)
+8) Duty cycle ~ 50%  
+
+Note: In above, TT process represents the nominal case where the concentration of the doping (in pmos and nmos) turned out just right.  
 
 # Day 2: Simulations
 To get started with simulations, it is necessary to create a SPICE file. It is a text file with .cir extension. We will create SPICE files for each of the building blocks of PLL system before proceeding with simulations.
@@ -328,6 +345,9 @@ For the tapeout process, one first needs to download and extract the GDS file of
 magic -T sky130A.tech user_analog_project_wrapper_empty.gds  
 
 The caravel user project area contains the input-output pins (fixed) along the border. The design is placed in this area and proper connections are made following which the whole project area is placed onto the caravel SoC. One must take care while making connections between different metal layers. The completed design is then sent to the fab to proceed with the tapeout.  
+
+# SUMMARY:
+In this workshop, we started with the basic understanding of the various blocks used to design a phase-locked loop (PLL) system. Circuits were designed based on established specifications to get desired response. This was followed by pre-layout simulations using ngspice to the confirm the expected results and debug the individual components in case of error. However, in doing this, we chose to neglect the effect of the interconnections (length, width, area), mismatch, etc. As such, a layout of the circuit was designed using magic tool which was followed by parasitic extractions. This generated a SPICE netlist of the entire circuit. Post-layout simulations were then carried out which gave a more accurate result for the PLL. Finally, to make the PLL IP tapeout ready, the final layout design was prepared using caravel soc template provided by efabless. The design was placed on the user's project area and connections were completed before sending it to the fab.
 
 # ACKNOWLEDGEMENT:  
 1) I would like to thank Mr. Kunal Ghosh (Co-founder VSD), for providing me an opportunity to partake in this workshop and help understand VLSI design flow process both theoritically and practically.
