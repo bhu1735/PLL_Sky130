@@ -195,10 +195,15 @@ Orange: UP Signal
 Green: DOWN Signal
 
 ### Charge Pump (CP):
+The output of the CP block when UP signal is ACTIVE (= '1'):  
+
+![image](https://user-images.githubusercontent.com/88243788/127944824-61a3522f-5f2e-41a6-a9a2-1baaaa99a35a.png)
+
+The graph below shows the rise in output due to charge leakage:  
 
 ![image](https://user-images.githubusercontent.com/88243788/127902497-9be94f90-ef67-423c-9b82-ae9b3491d84e.png)
 
-Clearly, slope is 40 V/s.
+The slope is 40 V/s. It indicates that in every 1us, the output capacitor gets charged by 40uV.
 
 ### Voltage Controlled Oscillator (VCO):
 
@@ -262,21 +267,31 @@ We shall now look at the layouts of the different blocks of PLL system.
 
 ![image](https://user-images.githubusercontent.com/88243788/127904631-03b2f06a-de8b-4565-b223-1ad6cb00faeb.png)
 
+Area is ~ 51um (square units)  
+
 ### Charge Pump (CP):
 
 ![image](https://user-images.githubusercontent.com/88243788/127904908-ad8e885d-35c9-4d87-9017-3c343302e055.png)
+
+Area is ~ 132.35um (square units)  
 
 ### Voltage Controlled Oscillator (VCO):
 
 ![image](https://user-images.githubusercontent.com/88243788/127904974-5b2de1a3-4d4f-4d36-ae74-6e4751f0a0f1.png)
 
+Area is ~ 57.8um (square units)  
+
 ### Frequency Divider (FD):
 
 ![image](https://user-images.githubusercontent.com/88243788/127905002-c0d8bde5-704b-48da-9dbe-4c7167128d07.png)
 
+Area is ~ 49.15um (square units)  
+
 ### MUX:
 
 ![image](https://user-images.githubusercontent.com/88243788/127905077-442151cb-5581-4c14-b11f-97dee7f13110.png)
+
+Area is ~ 12.2um (square units)  
 
 ### PLL System:
 A block level view of the layout is shown below:  
@@ -286,6 +301,8 @@ A block level view of the layout is shown below:
 Layout of the entire system is shown below:  
 
 ![image](https://user-images.githubusercontent.com/88243788/127941609-67d95318-1a76-4c5f-8f70-9bfe4f163d2d.png)
+
+Area is ~ 496.2um (square units)  
 
 ## Post-Layout Simulations:
 To run post-layout simulations, the command is:  
