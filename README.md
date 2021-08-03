@@ -45,7 +45,7 @@ In this era of information, analog domain has become a challenging and an import
 
 # Day 1:  
 ## PLL Theory:  
-A phase-locked loop (PLL) is a control system that compares the phase of input reference signal and output desired signal through a feedback loop. The goal of PLL system is to generate a very precise clock signal without frequency or phase noise and at the same time have the flexibility of running at the desired frequency.  
+A phase-locked loop (PLL) is a control system that compares the phase of input reference signal and output desired signal through a feedback loop. The goal of PLL system is to generate a very precise clock signal without frequency or phase noise and at the same time have the flexibility of running at the desired frequency. The output gets locked with the input reference signal. This means the output mimics the reference to have the same or a multiple of the reference signal frequency and a constant phase difference with it.
 
 The basic block diagram of PLL system is shown below:  
 
