@@ -99,7 +99,7 @@ Recall, the output capacitor of the CP circuit helps smoothens the output. Howev
   <img src="https://user-images.githubusercontent.com/88243788/127949975-45b89fb7-5a7d-4190-9b4d-a23fb0bbf6cc.png">  
 </p>
 
-To ensure stability of system, the designer chooses the values of resistors and capacitors as per a thumb rule mentioned above where the highest output frequency is the desired frequency to give for a PLL).
+To ensure stability of system, the designer chooses the values of resistors and capacitors as per a thumb rule mentioned above where the highest output frequency is the desired frequency to give for a PLL.
 
 ## Voltage Controlled Oscillator (VCO):
 A series combination of odd number of inverters is used to make a ring oscillator. This offers an output whose period is twice the total delay of all the inverters. However, to make it flexible, a current starving mechanism is used to control the oscillating frequency. Two current sources are used as supplies for the ring oscillator. This enable the control on its frequency based on an input-controlled voltage. The VCO is to be designed such that the range of output frequencies we want for the PLL is within the range of frequencies that this VCO can produce properly.
