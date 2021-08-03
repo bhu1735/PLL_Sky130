@@ -189,10 +189,10 @@ ngspice <file_name>.cir
 ![image](https://user-images.githubusercontent.com/88243788/127902238-124764cb-b3b6-4c0b-b7a2-c239e0f3db27.png)
 
 In above graph, the different colors represent:  
-Red: Clock 1  
-Blue: Clock 2  
-Orange: UP Signal  
-Green: DOWN Signal
+Clock 1-> red  
+Clock 2-> blue  
+UP Signal-> orange  
+DOWN Signal-> green
 
 ### Charge Pump (CP):
 The output of the CP block when UP signal is ACTIVE (= '1'):  
@@ -209,7 +209,7 @@ The slope is 40 V/s. It indicates that in every 1us, the output capacitor gets c
 
 ![image](https://user-images.githubusercontent.com/88243788/127902964-f830835f-1f20-4517-a464-c4bd70ccfd93.png)
 
-Here, the control voltage is represented byy Red color while output clock is shown by blue color.  
+Here, the control voltage is represented by red color while output clock is shown by blue color.  
 
 ### Frequency Divider (FD):
 
@@ -321,8 +321,8 @@ Whereas, below is the case, when DOWN signal is ACTIVE:
 ![image](https://user-images.githubusercontent.com/88243788/127905722-44a2248c-f66f-4c34-bb43-6df2e1b8960d.png)
 
 In both above cases, color terminology used is:  
-Clock1-> red  
-Clock2-> blue  
+Clock 1-> red  
+Clock 2-> blue  
 UP signal-> orange  
 DOWN signal-> green  
 
