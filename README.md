@@ -407,4 +407,4 @@ In this workshop, we started with the basic understanding of the various blocks 
 # ACKNOWLEDGEMENT:  
 1) I would like to thank Mr. Kunal Ghosh (Co-founder VSD Corp. Pvt. Ltd.), for providing me an opportunity to partake in this workshop and help understand VLSI design flow process both theoritically and practically.
 2) I would also like to thank Ms. Lakshmi S. for providing access to spice files and guidance throughout for the implementation of PLL system. 
-3) Lastly, I appreciate the TAs for clarifying my doubts during lab sessions without which this work would not have been made presentable.
+3) Lastly, I appreciate the TAs for clarifying my doubts during lab sessions without whom this work would not have been made presentable.
