@@ -252,6 +252,9 @@ Usually, it so happens that the output doesn't properly lock (or mimic the input
   - Adjust the loop filter values (while ensuring the stability of the system) to get desired response.  
 
 ## Layout Design:
+To design/modify the layout of different blocks, the command is:  
+magic -T <Technology_file_from_PDK> <the_layout_file_to_open>  
+
 Color Specifications used:
 1) p-diffusion -> orange  
 2) n-diffusion -> green  
