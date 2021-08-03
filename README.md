@@ -339,7 +339,7 @@ Below is the case when DOWN signal is ACTIVE (= '1'):
 
 ![image](https://user-images.githubusercontent.com/88243788/127906322-ad405a49-15a2-49d5-8b39-50db6afa2043.png)
 
-However, recall one of the main limitations of CP is charge leakage which causes output to charge in absence of input. This is demonstrated in below waveform.  
+However, recall one of the main limitations of CP is charge leakage which causes output to charge in absence of input. This is demonstrated in below waveform. On close observation, we find that the change in output voltage due to charge leakage is ~ 0.04V in 100usec.
 
 ![image](https://user-images.githubusercontent.com/88243788/127906520-ad0cab84-724e-488c-878c-786f28b54915.png)
 
