@@ -254,8 +254,11 @@ We shall now look at the layouts of the different blocks of PLL system.
 ![image](https://user-images.githubusercontent.com/88243788/127905077-442151cb-5581-4c14-b11f-97dee7f13110.png)
 
 ### PLL System:
+A block level view of the layout is shown below:  
 
 ![image](https://user-images.githubusercontent.com/88243788/127905043-03babaee-b073-429b-8a32-39d3a1852a98.png)
+
+Layout of the entire system is shown below:  
 
 ![image](https://user-images.githubusercontent.com/88243788/127941609-67d95318-1a76-4c5f-8f70-9bfe4f163d2d.png)
 
