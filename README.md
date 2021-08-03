@@ -75,7 +75,7 @@ Similarly, for signals of different frequency, if the output signal frequency is
 
 ![image](https://user-images.githubusercontent.com/88243788/127892100-c0a176de-91a9-4af1-845c-d094f4830844.png)
 
-To implement PFD, since we have to detect falling edges of two different signals, one uses 2 edge-triggered flip-flops as shown below. Moreover from the understanding established above in regards to UP and DOWN signals, one would require AND gate as well.
+To implement PFD, since we have to detect falling edges of two different signals, one uses 2 edge-triggered flip-flops as shown below. Moreover, from the basic understanding established above in regards to UP and DOWN signals, one would require AND gate as well.
 
 ![image](https://user-images.githubusercontent.com/88243788/127933159-9a54aae2-7008-477a-b1e1-4126e469bdba.png)
 
