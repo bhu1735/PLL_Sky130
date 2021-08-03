@@ -96,10 +96,10 @@ One main issue with the above transistor level design is that when the up and do
 Recall, the output capacitor of the CP circuit helps smoothens the output. However, there are still fluctuations caused due to rise and fall of UP and DOWN signals. To mitigate this, one may use a low-pass filter (LPF) at the output instead of just a capacitor. This smoothens out any high-frequency fluctuations in the output. It also helps in stabilizing the PLL system. Recall, a loop filter is same as adding a zero to the frequency domain of the PLL which enable the system to be stable. Without LPF, the PLL cannot lock and mimic the reference signal.  
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/88243788/127896041-afa78acd-cdf5-4fcb-8f7c-ad5bcc18c0e2.png">  
+  <img src="https://user-images.githubusercontent.com/88243788/127949975-45b89fb7-5a7d-4190-9b4d-a23fb0bbf6cc.png">  
 </p>
 
-As a thumb rule, Cx ~= C/10 and the loop filter bandwidth ~= 0.1*(highest output frequency intend to give for a PLL) for stability of the system.
+To ensure stability of system, the designer chooses the values of resistors and capacitors as per a thumb rule mentioned above where the highest output frequency is the desired frequency to give for a PLL).
 
 ## Voltage Controlled Oscillator (VCO):
 A series combination of odd number of inverters is used to make a ring oscillator. This offers an output whose period is twice the total delay of all the inverters. However, to make it flexible, a current starving mechanism is used to control the oscillating frequency. Two current sources are used as supplies for the ring oscillator. This enable the control on its frequency based on an input-controlled voltage. The VCO is to be designed such that the range of output frequencies we want for the PLL is within the range of frequencies that this VCO can produce properly.
@@ -263,7 +263,7 @@ Color Specifications used:
 5) Metal1 layer -> purple  
 6) Local interconnect layer -> blue
 
-While making connections, we use via to connect different metal layers and and interconnect layer between two transistors.  
+While making connections, we use via to connect different metal layers and and interconnect layer between two transistors. To calculate the area of a layout design, select the entire rectangular layout (Press "I") and type keyword "box" in the magic tool command window.  
 We shall now look at the layouts of the different blocks of PLL system.  
 
 ### Phase-Frequency Detector (PFD):
