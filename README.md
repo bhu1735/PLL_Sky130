@@ -190,7 +190,7 @@ ngspice <file_name>.cir
 
 ![image](https://user-images.githubusercontent.com/88243788/127902238-124764cb-b3b6-4c0b-b7a2-c239e0f3db27.png)
 
-In above graph, the different colors represent:  
+In above graph, the color terminology used is:  
 Clock 1-> red  
 Clock 2-> blue  
 UP Signal-> orange  
