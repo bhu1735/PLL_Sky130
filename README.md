@@ -407,5 +407,5 @@ In this workshop, we started with the basic understanding of the various blocks 
 # ACKNOWLEDGEMENT:  
 1) I would like to express my thanks of gratitude to Mr. Kunal Ghosh (Co-founder [VSD](https://www.vlsisystemdesign.com/) Corp. Pvt. Ltd.), for providing me an opportunity to partake in this workshop and help understand VLSI design flow process both theoritically and practically.  
 2) I would also like to thank Ms. Lakshmi S. for providing access to spice files ([8x PLL Clock Multiplier IP](https://github.com/lakshmi-sathi/avsdpll_1v8)) and guidance throughout for the implementation of PLL system.  
-3) For understanding open-source tools provided during workshop, I referred [Skywater](https://www.skywatertechnology.com/), [Efabless](https://efabless.com/), [Ngspice](http://ngspice.sourceforge.net/) and [Magic](http://opencircuitdesign.com/magic/); which also helped in my progress through lab sessions.  
+3) For understanding open-source tools provided during workshop, I referred [Skywater](https://www.skywatertechnology.com/), [Efabless](https://efabless.com/), [Ngspice](http://ngspice.sourceforge.net/) and [Magic](http://opencircuitdesign.com/magic/) ; which also helped in my progress through lab sessions.  
 4) Lastly, I appreciate the TAs for clarifying my doubts without whom this work would not have been made presentable.  
